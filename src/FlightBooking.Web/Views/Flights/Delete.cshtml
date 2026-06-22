@@ -1,0 +1,2 @@
+@model Flight
+@{ViewData["Title"]="Изтриване";}<section class="page-head compact"><h1>Изтриване на полет</h1></section><section class="confirm-box"><p>Сигурни ли сте, че искате да изтриете <strong>@Model.FlightNumber</strong> (@Model.DepartureAirport.Code → @Model.ArrivalAirport.Code)?</p><form method="post"><button class="danger">Да, изтрий</button> <a class="secondary" asp-action="Index">Отказ</a></form></section>

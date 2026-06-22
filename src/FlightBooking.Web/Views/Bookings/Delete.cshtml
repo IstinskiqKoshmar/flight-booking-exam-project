@@ -1,0 +1,2 @@
+@model Booking
+@{ViewData["Title"]="Отказ";}<section class="page-head compact"><h1>Отказ на резервация</h1></section><section class="confirm-box"><p>Сигурни ли сте, че искате да изтриете резервация <strong>@Model.BookingCode</strong> за @Model.Passenger.FullName?</p><form method="post"><button class="danger">Да, изтрий</button> <a class="secondary" asp-action="Index">Назад</a></form></section>

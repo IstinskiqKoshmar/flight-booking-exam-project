@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"] - SkyRoute</title>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+<header class="topbar">
+    <a class="brand" asp-controller="Home" asp-action="Index"><span class="brand-mark">✈</span> SkyRoute</a>
+    <nav>
+        <a asp-controller="Home" asp-action="Index">Търсене</a>
+        <a asp-controller="Flights" asp-action="Index">Полети</a>
+        <a asp-controller="Bookings" asp-action="Index">Резервации</a>
+        <a asp-controller="Airports" asp-action="Index">Летища</a>
+        <a asp-controller="Airlines" asp-action="Index">Авиокомпании</a>
+    </nav>
+</header>
+<main>@RenderBody()</main>
+<footer><div><strong>SkyRoute</strong><br/>Приложение „Самолетни полети“</div><div>Богомил Иринчев · XI Е · 2026</div></footer>
+</body>
+</html>

@@ -1,0 +1,8 @@
+bin/
+obj/
+.vs/
+*.user
+*.suo
+src/FlightBooking.Web/App_Data/
+artifacts/
+.nuget-local-feed/

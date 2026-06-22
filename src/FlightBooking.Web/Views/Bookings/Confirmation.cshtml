@@ -1,0 +1,2 @@
+@model Booking
+@{ViewData["Title"]="Потвърждение";}<section class="success-page"><div class="success-icon">✓</div><span class="eyebrow">РЕЗЕРВАЦИЯТА Е УСПЕШНА</span><h1>Приятен полет, @Model.Passenger.FullName!</h1><p>Код за резервация: <strong>@Model.BookingCode</strong></p><div class="ticket"><b>@Model.Flight.DepartureAirport.Code</b><span>✈ @Model.Flight.FlightNumber</span><b>@Model.Flight.ArrivalAirport.Code</b></div><a class="primary" asp-action="Details" asp-route-id="@Model.Id">Виж резервацията</a></section>

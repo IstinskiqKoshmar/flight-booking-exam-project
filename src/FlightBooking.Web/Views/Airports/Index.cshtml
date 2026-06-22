@@ -1,0 +1,2 @@
+@model IEnumerable<Airport>
+@{ViewData["Title"]="Летища";}<section class="page-head"><span class="eyebrow">МАРШРУТНА МРЕЖА</span><h1>Летища</h1><p>Начални и крайни точки в системата SkyRoute.</p></section><section class="content-wrap"><div class="info-grid">@foreach(var a in Model){<article><span class="airport-code">@a.Code</span><h3>@a.City</h3><p>@a.Name</p><small>@a.Country · @a.Terminal</small></article>}</div></section>

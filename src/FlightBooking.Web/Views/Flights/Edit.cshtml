@@ -1,0 +1,2 @@
+@model Flight
+@{ViewData["Title"]="Редакция";}<section class="page-head compact"><h1>Редакция на @Model.FlightNumber</h1></section><section class="form-page"><form method="post"><input asp-for="Id" type="hidden"/>@await Html.PartialAsync("_Form",Model)</form></section>

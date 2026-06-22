@@ -1,0 +1,2 @@
+@model IEnumerable<Airline>
+@{ViewData["Title"]="Авиокомпании";}<section class="page-head"><span class="eyebrow">НАШИТЕ ПАРТНЬОРИ</span><h1>Авиокомпании</h1><p>Превозвачи, включени в системата.</p></section><section class="content-wrap"><div class="info-grid">@foreach(var a in Model){<article><span class="airline-logo large">@a.IataCode</span><h3>@a.Name</h3><p>@a.Country</p><small>@a.Phone</small></article>}</div></section>

@@ -1,0 +1,22 @@
+@model HomeViewModel
+@{ ViewData["Title"]="Начало"; }
+<section class="hero">
+  <div class="hero-copy"><span class="eyebrow">ТВОЯТ ПЪТ ЗАПОЧВА ТУК</span><h1>Открий следващия<br/><em>полет.</em></h1><p>Сравни маршрути, цени и часове. Резервирай бързо и следи статуса на полета.</p></div>
+  <div class="sky-card"><div class="plane">✈</div><div class="route-line"></div><span>SOF</span><b>Европа</b></div>
+</section>
+<section class="search-shell">
+  <form asp-action="Search" method="get" class="search-form">
+    <div class="trip-choice"><label><input type="radio" name="tripType" value="oneway" checked/> Еднопосочен</label><label><input type="radio" name="tripType" value="roundtrip"/> Двупосочен</label></div>
+    <div class="search-grid">
+      <label>От<select name="from" required><option value="">Град или летище</option>@foreach(var a in Model.Airports){<option value="@a.Code">@a.City (@a.Code)</option>}</select></label>
+      <label>До<select name="to" required><option value="">Град или летище</option>@foreach(var a in Model.Airports){<option value="@a.Code">@a.City (@a.Code)</option>}</select></label>
+      <label>Заминаване<input type="date" name="date" value="2026-07-02" required/></label>
+      <label>Връщане<input type="date" name="returnDate" value="2026-07-09"/></label>
+      <label>Пътници<input type="number" name="passengers" value="1" min="1" max="9"/></label>
+      <button class="primary" type="submit">Търси полети →</button>
+    </div>
+  </form>
+</section>
+<section class="section"><div class="section-title"><div><span class="eyebrow">ИЗГОДНИ ПРЕДЛОЖЕНИЯ</span><h2>Популярни полети</h2></div><a asp-controller="Flights" asp-action="Index">Виж всички →</a></div>
+<div class="flight-grid">@foreach(var f in Model.FeaturedFlights){<article class="flight-card"><div class="flight-top"><span>@f.Airline.Name</span><b>@f.FlightNumber</b></div><div class="route"><div><strong>@f.DepartureAirport.Code</strong><small>@f.DepartureTime.ToString("HH:mm")</small></div><div class="route-mid">✈<hr/><small>@(f.HasStopover?"с прекачване":"директен")</small></div><div><strong>@f.ArrivalAirport.Code</strong><small>@f.ArrivalTime.ToString("HH:mm")</small></div></div><div class="price"><span>от</span><b>@f.Price.ToString("0") €</b><a asp-controller="Bookings" asp-action="Book" asp-route-flightId="@f.Id">Избери</a></div></article>}</div>
+<div class="stats"><div><b>@Model.FlightCount+</b><span>налични полета</span></div><div><b>@Model.Airports.Count</b><span>летища</span></div><div><b>@Model.Airlines.Count</b><span>авиокомпании</span></div><div><b>@Model.BookingCount</b><span>резервации</span></div></div></section>
